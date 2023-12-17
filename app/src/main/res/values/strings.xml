@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ProyectoMoviles</string>
+    <string name="etContrase_a">Contraseña</string>
+    <string name="etCorreo">Correo</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="bienvenid">¡Bienvenid@!</string>
 </resources>
