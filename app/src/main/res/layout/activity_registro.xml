@@ -17,7 +17,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/cineplanet_logo" />
+        app:srcCompat="@drawable/cineplanet_logo"
+        android:contentDescription="TODO"
+        tools:ignore="ContentDescription,HardcodedText" />
 
     <TextView
         android:id="@+id/txtRegistro"
@@ -31,7 +33,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgLogo" />
+        app:layout_constraintTop_toTopOf="@+id/imgLogo"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/etUsuario"
@@ -40,16 +43,18 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/etregistro_bg"
         android:ems="10"
-        android:hint="Nombre de Usuario"
+        android:hint="@string/nombre_de_usuario"
         android:inputType="text"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
         android:textColor="@color/white"
         android:textColorHint="#D4D4D4"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRegistro"
+        android:autofillHints=""
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/etConfirm"
@@ -57,16 +62,18 @@
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
         android:textSize="20sp"
         android:background="@drawable/etregistro_bg"
         android:inputType="text"
-        android:hint=" Confirmar Contraseña"
+        android:hint="@string/confirmar_contrase_a"
         android:textColorHint="#D4D4D4"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContraseña" />
+        app:layout_constraintTop_toBottomOf="@+id/etContraseña"
+        android:autofillHints=""
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/etContraseña"
@@ -74,19 +81,21 @@
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
         android:textSize="20sp"
         android:background="@drawable/etregistro_bg"
         android:inputType="text"
-        android:hint="Contraseña"
+        android:hint="@string/contrase_a"
         android:textColorHint="#D4D4D4"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/etUsuario"
+        android:autofillHints=""
+        tools:ignore="RtlSymmetry" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRegistro"
         android:layout_width="247dp"
         android:layout_height="60dp"
         android:layout_marginTop="36dp"
@@ -96,5 +105,6 @@
         android:textSize="37sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etConfirm" />
+        app:layout_constraintTop_toBottomOf="@+id/etConfirm"
+        tools:ignore="HardcodedText,TextSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

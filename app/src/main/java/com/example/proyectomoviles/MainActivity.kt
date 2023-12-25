@@ -17,11 +17,11 @@ class MainActivity : AppCompatActivity() {
         btnRegistro = findViewById(R.id.btnRegistrarse)
 
         btnRegistro.setOnClickListener{
-            val intent = Intent(this,Login::class.java)
+            val intent = Intent(this,Registro::class.java)
             startActivity(intent)
         }
         btnIngresar.setOnClickListener {
-            val intent = Intent(this,Registro::class.java)
+            val intent = Intent(this,Login::class.java)
             startActivity(intent)
         }
     }
