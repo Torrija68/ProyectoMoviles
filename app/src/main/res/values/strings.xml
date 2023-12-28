@@ -9,4 +9,10 @@
     <string name="nombre_de_usuario">Nombre de Usuario</string>
     <string name="confirmar_contrase_a">Confirmar Contraseña</string>
     <string name="contrase_a">Contraseña</string>
+    <string name="Peliculas" />
+    <string name="peliculas_cineplanet">Peliculas | CinePlanet</string>
+    <string name="estrenos">Estrenos</string>
+    <string name="buscar_peliculas">Buscar Peliculas</string>
+    <string name="nombre_de_la_pel_cula_2">Nombre de la Película 2</string>
+    <string name="nombre_de_la_pel_cula_3">Nombre de la Película 3</string>
 </resources>

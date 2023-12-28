@@ -13,10 +13,13 @@
         android:theme="@style/Theme.ProyectoMoviles"
         tools:targetApi="31">
         <activity
-            android:name=".Login"
+            android:name="com.example.proyectomoviles.MenuPrincipal"
             android:exported="false" />
         <activity
-            android:name=".Registro"
+            android:name="com.example.proyectomoviles.Login"
+            android:exported="false" />
+        <activity
+            android:name="com.example.proyectomoviles.Registro"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
