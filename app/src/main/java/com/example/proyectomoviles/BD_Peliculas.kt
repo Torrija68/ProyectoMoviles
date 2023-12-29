@@ -32,6 +32,11 @@ class BD_Peliculas(context: Context) : SQLiteOpenHelper(context,"Peliculas",null
         insertarPelicula(db, "El Señor de los Anillos", "Frodo Bolsón es un hobbit...", R.drawable.ic_pelicula1)
         insertarPelicula(db, "Volver al Futuro", "Una máquina del tiempo transporta a un adolescente...", R.drawable.ic_pelicula2)
         insertarPelicula(db, "Spiderman", "Luego de sufrir la picadura de una araña genéticamente modificada...", R.drawable.ic_pelicula3)
+        insertarPelicula(db,"Titanic","Jack es un joven artista que gana un pasaje para viajar a América en...",R.drawable.ic_pelicula4)
+        insertarPelicula(db,"Terminator","En el año 2029 las máquinas dominan el mundo. Los rebeldes que...",R.drawable.ic_pelicula5)
+        insertarPelicula(db,"Toy Story","Los juguetes de Andy, un niño de seis años, temen que un nuevo...",R.drawable.ic_pelicula6)
+        insertarPelicula(db,"Scream","Un asesino en serie, con máscara y disfraz negro, siembra el pánico...",R.drawable.ic_pelicula7)
+        insertarPelicula(db,"Die Hard","Un grupo terrorista se apodera de un edificio de Los Ángeles...",R.drawable.ic_pelicula8)
         db.close()
     }
 
@@ -68,11 +73,16 @@ class BD_Peliculas(context: Context) : SQLiteOpenHelper(context,"Peliculas",null
         return peliculas
     }
     fun isBaseDeDatosInicializada(): Boolean {
-        val db = readableDatabase
+        val db = writableDatabase
         val cursor = db.rawQuery("SELECT * FROM Peliculas", null)
         val isInitialized = cursor.count > 0
         cursor.close()
         db.close()
         return isInitialized
+    }
+    fun eliminarPelicula(id: Int) {
+        val db = writableDatabase
+        db.delete("Peliculas", "id=?", arrayOf(id.toString()))
+        db.close()
     }
 }
