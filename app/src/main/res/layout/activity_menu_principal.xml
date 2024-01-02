@@ -63,6 +63,7 @@
             android:id="@+id/layoutLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="8dp"
             android:orientation="vertical">
 
             <EditText
@@ -98,13 +99,28 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewPeliculas"
                 android:layout_width="match_parent"
-                android:layout_height="524dp"
+                android:layout_height="538dp"
+                android:paddingStart="20dp"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:spanCount="1">
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <Button
+                android:id="@+id/btnAgregarPelicula"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/anton"
+                android:text="Agregar Pelicula"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:spanCount="1" />
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewPeliculas" />
 
         </LinearLayout>
 

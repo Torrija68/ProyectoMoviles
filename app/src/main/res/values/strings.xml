@@ -16,4 +16,8 @@
     <string name="nombre_de_la_pel_cula_2">Nombre de la Película 2</string>
     <string name="nombre_de_la_pel_cula_3">Nombre de la Película 3</string>
     <string name="eliminar_pelicula" />
+    <string name="editar_pelicula" />
+    <string name="descripci_n_de_la_pel_cula">Descripción de la película</string>
+    <string name="nombre_de_la_pel_cula">Nombre de la película</string>
+    <string name="modificar_pel_cula">Modificar Película</string>
 </resources>

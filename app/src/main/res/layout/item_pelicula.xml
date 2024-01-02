@@ -52,9 +52,22 @@
             android:layout_marginTop="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:clickable="true"
-            android:contentDescription="@string/eliminar_pelicula"
+            android:contentDescription="@string/todo"
             android:focusable="true"
-            android:src="@drawable/ic_eliminar" />
-    </LinearLayout>
+            android:src="@drawable/ic_eliminar"
+            tools:ignore="TouchTargetSizeCheck" />
 
+        <ImageView
+            android:id="@+id/btnModificar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:clickable="true"
+            android:contentDescription="@string/todo"
+            android:focusable="true"
+            android:src="@drawable/ic_editar"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
 </LinearLayout>

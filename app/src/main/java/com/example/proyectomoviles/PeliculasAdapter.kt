@@ -7,14 +7,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class PeliculasAdapter(private val peliculas: MutableList<Pelicula>, private val onDeleteClickListener: (Int) -> Unit) :
-    RecyclerView.Adapter<PeliculasAdapter.PeliculaViewHolder>() {
+class PeliculasAdapter(
+    private val peliculas: MutableList<Pelicula>,
+    private val onDeleteClickListener: (Int) -> Unit,
+    private val onEditClickListener: (Int) -> Unit,
+    //private val onCreateClickListener: () -> Unit
+) : RecyclerView.Adapter<PeliculasAdapter.PeliculaViewHolder>() {
 
     class PeliculaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgPelicula: ImageView = itemView.findViewById(R.id.imgPelicula)
         val txtNombrePelicula: TextView = itemView.findViewById(R.id.txtNombrePelicula)
         val txtDescripcion: TextView = itemView.findViewById(R.id.txtDescripcion)
         val btnEliminar: ImageView = itemView.findViewById(R.id.btnEliminar)
+        val btnModificar: ImageView = itemView.findViewById(R.id.btnModificar)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeliculaViewHolder {
@@ -32,6 +37,9 @@ class PeliculasAdapter(private val peliculas: MutableList<Pelicula>, private val
         // Configura el clic del botón de eliminación
         holder.btnEliminar.setOnClickListener {
             onDeleteClickListener.invoke(position)
+        }
+        holder.btnModificar.setOnClickListener{
+            onEditClickListener.invoke(position)
         }
     }
 

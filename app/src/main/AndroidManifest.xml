@@ -13,13 +13,19 @@
         android:theme="@style/Theme.ProyectoMoviles"
         tools:targetApi="31">
         <activity
-            android:name="com.example.proyectomoviles.MenuPrincipal"
+            android:name=".CrearPelicula"
             android:exported="false" />
         <activity
-            android:name="com.example.proyectomoviles.Login"
+            android:name=".ModificarPelicula"
             android:exported="false" />
         <activity
-            android:name="com.example.proyectomoviles.Registro"
+            android:name=".MenuPrincipal"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Registro"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
