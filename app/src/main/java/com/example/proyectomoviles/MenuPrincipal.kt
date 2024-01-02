@@ -1,9 +1,14 @@
 package com.example.proyectomoviles
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Intent
+import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -13,6 +18,7 @@ class MenuPrincipal : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: PeliculasAdapter
     private var peliculasList: MutableList<Pelicula> = mutableListOf()
+    private var mediaPlayer: MediaPlayer?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,12 +27,17 @@ class MenuPrincipal : AppCompatActivity() {
         dbHelper = BD_Peliculas(this)
         // dbHelper.inicializarBaseDeDatos()
         recyclerView = findViewById(R.id.recyclerViewPeliculas)
+        mediaPlayer = MediaPlayer.create(this, R.raw.sonido_eliminar)
         recyclerView.layoutManager = GridLayoutManager(this, 1)
         adapter = PeliculasAdapter(peliculasList,
             onDeleteClickListener = { position ->
+                val nombrePelicula = peliculasList[position].nombre
                 dbHelper.eliminarPelicula(peliculasList[position].id)
                 peliculasList.removeAt(position)
                 adapter.notifyDataSetChanged()
+
+                NotificacionEliminarPelicula(nombrePelicula)
+                mediaPlayer?.start()
             },
             onEditClickListener = { position ->
                 abrirActividadEditar(peliculasList[position])
@@ -37,6 +48,7 @@ class MenuPrincipal : AppCompatActivity() {
         val btnAgregarPelicula = findViewById<Button>(R.id.btnAgregarPelicula)
         btnAgregarPelicula.setOnClickListener() {
             abrirActividadCrear()
+
         }
     }
 
@@ -59,5 +71,27 @@ class MenuPrincipal : AppCompatActivity() {
         // Aquí debes abrir la actividad para crear una nueva película
         val intent = Intent(this, CrearPelicula::class.java)
         startActivity(intent)
+    }
+    private fun NotificacionEliminarPelicula(nombrePelicula : String){
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "mi_canal",
+                "Nombre del Canal",
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            notificationManager.createNotificationChannel(channel)
+        }
+        val notification = NotificationCompat.Builder(this, "mi_canal")
+            .setContentTitle("Película Eliminada")
+            .setContentText("Has eliminado la película: $nombrePelicula")
+            .setSmallIcon(R.drawable.ic_notificacion_eliminar)
+            .build()
+        notificationManager.notify(1, notification)
+    }
+
+    override fun onDestroy() {
+        mediaPlayer?.release()
+        super.onDestroy()
     }
 }

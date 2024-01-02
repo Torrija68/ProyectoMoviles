@@ -20,4 +20,5 @@
     <string name="descripci_n_de_la_pel_cula">Descripción de la película</string>
     <string name="nombre_de_la_pel_cula">Nombre de la película</string>
     <string name="modificar_pel_cula">Modificar Película</string>
+    <string name="nombrePelicula" />
 </resources>

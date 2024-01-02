@@ -1,10 +1,14 @@
 package com.example.proyectomoviles
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.core.app.NotificationCompat
 
 class ModificarPelicula : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,23 +20,24 @@ class ModificarPelicula : AppCompatActivity() {
         var descripcionOriginal = intent.getStringExtra("pelicula_descripcion") ?: ""
         val imagen = intent.getIntExtra("pelicula_imagen", 0)
 
-        val etNombre = findViewById<EditText>(R.id.etNombre)
+        val etTitulo = findViewById<EditText>(R.id.etTitulo)
         val etDescripcion = findViewById<EditText>(R.id.etDescripcion)
         val btnGuardar = findViewById<Button>(R.id.btnGuardar)
         val btnVolver = findViewById<Button>(R.id.btnVolver)
         val imgPelicula = findViewById<ImageView>(R.id.imgPelicula)
         imgPelicula.setImageResource(imagen)
 
-        etNombre.setText(nombreOriginal)
+        etTitulo.setText(nombreOriginal)
         etDescripcion.setText(descripcionOriginal)
 
         btnGuardar.setOnClickListener {
-            val nuevoNombre = etNombre.text.toString()
+            val nuevoTitulo = etTitulo.text.toString()
             val nuevaDescripcion = etDescripcion.text.toString()
 
-            if (nuevoNombre != nombreOriginal || nuevaDescripcion != descripcionOriginal) {
+            if (nuevoTitulo != nombreOriginal || nuevaDescripcion != descripcionOriginal) {
                 val dbHelper = BD_Peliculas(this)
-                dbHelper.modificarPelicula(peliculaId, nuevoNombre, nuevaDescripcion)
+                dbHelper.modificarPelicula(peliculaId, nuevoTitulo, nuevaDescripcion)
+                NotificacionModificarPelicula(nuevoTitulo)
             }
 
         }
@@ -40,4 +45,24 @@ class ModificarPelicula : AppCompatActivity() {
             finish()
         }
     }
+    private fun NotificacionModificarPelicula(titulo : String){
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "mi_canal",
+                "Nombre del Canal",
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        val notification = NotificationCompat.Builder(this, "mi_canal")
+            .setContentTitle("Película Modificada")
+            .setContentText("Has Modificado la película: $titulo")
+            .setSmallIcon(R.drawable.ic_notificacion_modificar)
+            .build()
+
+        notificationManager.notify(1, notification)
+    }
+
 }

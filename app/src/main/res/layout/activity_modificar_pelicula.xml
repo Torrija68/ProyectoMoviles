@@ -51,7 +51,7 @@
         app:layout_constraintVertical_bias="0.847" />
 
     <EditText
-        android:id="@+id/etNombre"
+        android:id="@+id/etTitulo"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_margin="16dp"
@@ -113,14 +113,15 @@
         tools:ignore="ContentDescription,HardcodedText" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="352dp"
         android:fontFamily="@font/anton"
         android:text="Título"
         android:textColor="@color/colorTextIcons"
         android:textSize="@dimen/_25ssp"
-        app:layout_constraintBottom_toTopOf="@+id/etNombre"
+        app:layout_constraintBottom_toTopOf="@+id/etTitulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,7 +129,7 @@
         app:layout_constraintVertical_bias="0.974" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="448dp"
