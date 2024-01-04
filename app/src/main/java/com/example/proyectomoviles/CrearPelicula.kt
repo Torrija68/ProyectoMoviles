@@ -1,7 +1,9 @@
 package com.example.proyectomoviles
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,21 +14,24 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 
 class CrearPelicula : AppCompatActivity() {
+    private var mediaPlayer: MediaPlayer?=null
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_pelicula)
 
         val etTitulo = findViewById<EditText>(R.id.etTitulo)
         val etDescripcion = findViewById<EditText>(R.id.etDescripcion)
-        val btnGuardar = findViewById<Button>(R.id.btnGuardar)
+        val btnCrear = findViewById<Button>(R.id.btnCrear)
         val btnVolver = findViewById<Button>(R.id.btnVolver)
         val imgPelicula = findViewById<ImageView>(R.id.imgPelicula)
         imgPelicula.setImageResource(R.drawable.ic_pelicula_default)
+        mediaPlayer = MediaPlayer.create(this, R.raw.sonido_guardar)
 
-        btnGuardar.setOnClickListener {
+        btnCrear.setOnClickListener {
+            mediaPlayer?.start()
             val titulo = etTitulo.text.toString()
             val descripcion = etDescripcion.text.toString()
-
 
             if(titulo.isNotEmpty() && descripcion.isNotEmpty()){
                 val dbHelper = BD_Peliculas(this)

@@ -113,16 +113,16 @@
         app:layout_constraintVertical_bias="0.857" />
 
     <Button
-        android:id="@+id/btnGuardar"
+        android:id="@+id/btnCrear"
         android:layout_width="99dp"
         android:layout_height="52dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/btn_bg"
         android:fontFamily="@font/anton"
-        android:text="Guardar"
+        android:text="Crear"
         android:textSize="@dimen/_14ssp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDescripcion" />
 
@@ -136,7 +136,7 @@
         android:fontFamily="@font/anton"
         android:text="Volver"
         android:textSize="@dimen/_14ssp"
-        app:layout_constraintEnd_toStartOf="@+id/btnGuardar"
+        app:layout_constraintEnd_toStartOf="@+id/btnCrear"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etDescripcion" />
