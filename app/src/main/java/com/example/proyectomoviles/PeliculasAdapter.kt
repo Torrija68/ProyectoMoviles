@@ -11,7 +11,7 @@ class PeliculasAdapter(
     private val peliculas: MutableList<Pelicula>,
     private val onDeleteClickListener: (Int) -> Unit,
     private val onEditClickListener: (Int) -> Unit,
-    //private val onCreateClickListener: () -> Unit
+
 ) : RecyclerView.Adapter<PeliculasAdapter.PeliculaViewHolder>() {
 
     class PeliculaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -34,7 +34,6 @@ class PeliculasAdapter(
         holder.txtNombrePelicula.text = pelicula.nombre
         holder.txtDescripcion.text = pelicula.descripcion
 
-        // Configura el clic del botón de eliminación
         holder.btnEliminar.setOnClickListener {
             onDeleteClickListener.invoke(position)
         }
@@ -48,7 +47,7 @@ class PeliculasAdapter(
     }
 
     fun updateData(newData: List<Pelicula>) {
-        peliculas.clear()  // Limpiar la lista existente
+        peliculas.clear()
         peliculas.addAll(newData)
         notifyDataSetChanged()
     }

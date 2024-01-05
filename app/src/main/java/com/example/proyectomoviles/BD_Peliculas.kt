@@ -75,14 +75,7 @@ class BD_Peliculas(context: Context) : SQLiteOpenHelper(context,"Peliculas",null
         }
         return peliculas
     }
-    fun isBaseDeDatosInicializada(): Boolean {
-        val db = writableDatabase
-        val cursor = db.rawQuery("SELECT * FROM Peliculas", null)
-        val isInitialized = cursor.count > 0
-        cursor.close()
-        db.close()
-        return isInitialized
-    }
+
     fun eliminarPelicula(id: Int) {
         val db = writableDatabase
         db.delete("Peliculas", "id=?", arrayOf(id.toString()))

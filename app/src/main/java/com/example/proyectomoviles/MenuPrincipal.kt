@@ -21,7 +21,6 @@ class MenuPrincipal : AppCompatActivity() {
     private lateinit var dbHelper: BD_Peliculas
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: PeliculasAdapter
-    private lateinit var txtCabecera : TextView
     private var peliculasList: MutableList<Pelicula> = mutableListOf()
     private var mediaPlayer: MediaPlayer? = null
 
@@ -33,7 +32,7 @@ class MenuPrincipal : AppCompatActivity() {
         dbHelper = BD_Peliculas(this)
         // dbHelper.inicializarBaseDeDatos()
         recyclerView = findViewById(R.id.recyclerViewPeliculas)
-        mediaPlayer = MediaPlayer.create(this, R.raw.sonido_eliminar)
+        mediaPlayer = MediaPlayer.create(this, R.raw.sonido_eliminar) //asigna el sonido para el mediaPlayer
         recyclerView.layoutManager = GridLayoutManager(this, 1)
         adapter = PeliculasAdapter(peliculasList,
             onDeleteClickListener = { position ->
@@ -75,7 +74,6 @@ class MenuPrincipal : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        // Obtener y mostrar las películas
         val newData = dbHelper.obtenerPeliculas()
         adapter.updateData(newData)
         adapter.notifyDataSetChanged()
@@ -91,7 +89,6 @@ class MenuPrincipal : AppCompatActivity() {
     }
 
     private fun abrirActividadCrear() {
-        // Aquí debes abrir la actividad para crear una nueva película
         val intent = Intent(this, CrearPelicula::class.java)
         startActivity(intent)
     }
